@@ -230,14 +230,20 @@ for(let x=0; x<colores.length; x++){
 
 	if(color==colores[x]){
 
-		indice =x;
+		indice=x;
 	}
 }
 
-if(indice>=0)
+if(indice>=0){
+
 	console.log(`color ${colores[indice]} encontrado se encuentra en la posicion ${indice}`); 
-else
+	console.log(indice);
+}
+else{
 	console.log(`color no encontrado`);
+	console.log(indice);
+}
+	
 
 
 
