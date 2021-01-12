@@ -18,48 +18,91 @@ class CLibro{
 
 
 let libros =[];
+
 let titulo;
 let autor;
 let anio;
 let genero;
+let aux;
 
 let libro;
 
-while(libros.length<=1){
-	titulo= prompt('Introduce titulo: ');
-	autor=prompt('Introduce autor');
-	anio = prompt('Introduce año');
-	genero = prompt('Introduce genero').toLowerCase();
+while(libros.length<1){
 
-	if(titulo==""){
-		titulo="Sin titulo";
-	}
-	if(autor==""){
-		autor="Sin autor";
-	}
-	if(anio=="" || anio.length<4){
-		anio="año no valido";
-	}
-	if(genero==""){
-		if(genero!='aventuras' || genero!='terror' || genero!='fantasia'){
-			genero="Sin genero";
+	do{
 
+		aux = prompt('Introduce titulo: ');
+		titulo=aux;
+
+	}while(aux=="");
+
+	do{
+
+		aux = prompt('Introduce autor: ');
+		autor=aux;
+
+	}while(aux=="");
+
+	do{
+
+		aux = prompt('Introduce año: ');
+		anio=aux;
+
+		if(aux<=999)
+		alert('año no valido');
+
+	}while(aux=="" || anio.length<4 || parseInt(anio)<=999);
+
+	do{
+
+		aux = prompt('Introduce genero:  ');
+		if(aux=="aventuras" || aux=="terror" || aux=="fantasia"){
+			
+			genero=aux.toLowerCase();
+
+			
+
+		}else{
+			aux="";
+
+			alert('genero no valido');
 		}
-	}
+		
+
+	}while(aux=="");
 
 	libro = new CLibro(titulo,autor,anio,genero);
 	libros.push(libro);
-}
-
-for(let x=0; x<libros.length;x++){
-	libros[x].autor.sort();
-
-	console.log(`${libros[x].devolverInformacion()}`)
 
 }
 
+let busquedaGenero;
+mostrarLibros(libros);
+
+busquedaGenero = prompt('Introduce un genero: ').toLowerCase();
+buscarPorGenero(busquedaGenero)
+
+function mostrarLibros(pList){
+
+	for(let x=0; x<pList.length;x++){
+		
+		//libros[x].autor.sort();
+		console.log(`${pList[x].devolverInformacion()}`)
+
+	}
+
+}
 
 
+
+
+
+function buscarPorGenero(pGenero){
+
+
+	if(pGenero==libros)
+
+}
 function estaVacio(pValor){
 
 	if(pValor==null){
