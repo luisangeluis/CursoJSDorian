@@ -23,8 +23,9 @@ let titulo;
 let autor;
 let anio;
 let genero;
-let aux;
 
+let aux;
+let aux2;
 let libro;
 
 while(libros.length<1){
@@ -53,34 +54,26 @@ while(libros.length<1){
 
 	}while(aux=="" || anio.length<4 || parseInt(anio)<=999);
 
+
 	do{
-
-		aux = prompt('Introduce genero:  ');
+		aux = prompt('Introduce genero:  ').toLowerCase();
+		
 		if(aux=="aventuras" || aux=="terror" || aux=="fantasia"){
-			
-			genero=aux.toLowerCase();
-
-			
+			genero =aux;
 
 		}else{
 			aux="";
-
-			alert('genero no valido');
 		}
-		
+	}while(aux=="" );
 
-	}while(aux=="");
+
 
 	libro = new CLibro(titulo,autor,anio,genero);
 	libros.push(libro);
 
 }
 
-let busquedaGenero;
 mostrarLibros(libros);
-
-busquedaGenero = prompt('Introduce un genero: ').toLowerCase();
-buscarPorGenero(busquedaGenero)
 
 function mostrarLibros(pList){
 
@@ -97,17 +90,35 @@ function mostrarLibros(pList){
 
 
 
+
+
+let busquedaGenero;
+
+
+busquedaGenero = prompt('Introduce un genero para buscar: ').toLowerCase();
+//busquedaGenero = 'terror';
+
+buscarPorGenero(busquedaGenero)
+
+
+
+
+
+
+
 function buscarPorGenero(pGenero){
 
+	//console.log(busquedaGenero);
 
-	if(pGenero==libros)
-
-}
-function estaVacio(pValor){
-
-	if(pValor==null){
-		return true;
+for(let x =0; x<libros.length; x++){
+	if(libros[x].genero==pGenero){
+		console.log('genero encontrado');
+		console.log(libros[x].devolverInformacion());
+	}else{
+		console.log('genero no encontrado');
 	}
-
-	false;
 }
+	
+}
+
+
