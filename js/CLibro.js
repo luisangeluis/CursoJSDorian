@@ -14,6 +14,10 @@ class CLibro{
 		return datos;
 	}
 
+	getGenero(){
+		return this.genero;
+	}
+
 }
 
 
@@ -28,7 +32,7 @@ let aux;
 let aux2;
 let libro;
 
-while(libros.length<1){
+while(libros.length<3){
 
 	do{
 
@@ -50,7 +54,7 @@ while(libros.length<1){
 		anio=aux;
 
 		if(aux<=999)
-		alert('año no valido');
+			alert('año no valido');
 
 	}while(aux=="" || anio.length<4 || parseInt(anio)<=999);
 
@@ -77,12 +81,15 @@ mostrarLibros(libros);
 
 function mostrarLibros(pList){
 
+	/*
 	for(let x=0; x<pList.length;x++){
 		
 		//libros[x].autor.sort();
 		console.log(`${pList[x].devolverInformacion()}`)
 
 	}
+	*/
+	console.log(libros);
 
 }
 
@@ -110,14 +117,18 @@ function buscarPorGenero(pGenero){
 
 	//console.log(busquedaGenero);
 
-for(let x =0; x<libros.length; x++){
-	if(libros[x].genero==pGenero){
-		console.log('genero encontrado');
-		console.log(libros[x].devolverInformacion());
-	}else{
-		console.log('genero no encontrado');
+	for(let x =0; x<libros.length; x++){
+		if(libros[x].genero==pGenero){
+			console.log('genero encontrado');
+			console.log(libros[x].devolverInformacion());
+
+
+		}
+
+		console.log('generos Ordenados');
+
+		console.log(libros[x].getGenero().sort());
 	}
-}
 	
 }
 
