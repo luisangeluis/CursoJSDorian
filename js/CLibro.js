@@ -18,6 +18,10 @@ class CLibro{
 		return this.genero;
 	}
 
+	getAutor(){
+		return this.autor;
+	}
+
 }
 
 
@@ -32,7 +36,7 @@ let aux;
 let aux2;
 let libro;
 
-while(libros.length<3){
+while(libros.length<4){
 
 	do{
 
@@ -106,7 +110,7 @@ busquedaGenero = prompt('Introduce un genero para buscar: ').toLowerCase();
 //busquedaGenero = 'terror';
 
 buscarPorGenero(busquedaGenero)
-
+ordenarPorAutor(libros);
 
 
 
@@ -121,15 +125,21 @@ function buscarPorGenero(pGenero){
 		if(libros[x].genero==pGenero){
 			console.log('genero encontrado');
 			console.log(libros[x].devolverInformacion());
-
-
 		}
 
-		console.log('generos Ordenados');
 
-		console.log(libros[x].getGenero().sort());
 	}
 	
+}
+
+function ordenarPorAutor(pLibros){
+
+	let autores=[];
+	for(let libro of pLibros){
+		autores.push(libro.getAutor()); 
+	}
+
+	console.log(autores.sort());
 }
 
 
