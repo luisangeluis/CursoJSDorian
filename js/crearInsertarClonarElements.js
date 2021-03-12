@@ -36,4 +36,13 @@ item.textContent='Otro elemento'
 //lista.after(item);
 
 //TE POSICIONAS EN EL HIJO Y TAMBIEN FUNCIONA PARA QUE EL ELEMENTO QUEDE ADENTRO DE LA LISTA
-lista.children[0].after(item);
+//lista.children[0].after(item);
+
+//REEMPLAZAR ELEMENTOS
+//lista.children[1].replaceWith(item);
+
+//lista.after(lista.cloneNode(true));
+
+//ELIMINAR ELEMENTOS
+//lista.remove();
+lista.removeChild(lista.children[1]);
