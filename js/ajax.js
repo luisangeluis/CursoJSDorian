@@ -19,14 +19,16 @@ button.addEventListener('click',()=>{
         console.dir(dataJson);
 
         fragmento = document.createDocumentFragment();
-        let li = document.createElement('li');
+
         dataJson.forEach(element => {
-            li.innerText = `id: ${element.id} nombre: ${element.name}`;
-            fragmento.appendChild(li);
+            let li = document.createElement('li');
+            li.textContent = `id: ${element.id} nombre: ${element.name}`;
+            //fragmento.appendChild(li);
+            lista.appendChild(li);
 
         });
 
-        lista.appendChild(fragmento);
+        //lista.appendChild(fragmento);
        
         
 
