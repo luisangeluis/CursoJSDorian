@@ -98,30 +98,33 @@ const getData = (id) => {
 
         });
         */
-        xhr.open('GET', 'https://jsonplaceholder.typicode.com/users?id=${id}');
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/users?id=4');
 
         xhr.addEventListener('load', (data) => {
 
             const dataJSON = JSON.parse(data.target.response);
             const fragmen = document.createDocumentFragment();
-                           const tr = document.createElement('tr');
+            //const tr = document.createElement('tr');
 
-            fragmen.appendChild(tr); 
+            //fragmen.appendChild(tr); 
 
 
             dataJSON.forEach(user=>{
-               //const tr = document.createElement('tr');
+               const tr = document.createElement('tr');
                const name = document.createElement('td');
                const username = document.createElement('td');
                const email = document.createElement('td');
 
                name.textContent = user.name;
-               name.textContent = user.username;
-               name.textContent = user.email;
+               username.textContent = user.username;
+               email.textContent = user.email;
 
-               fragment.children[1].appendChil(name);
-               fragment.appendChil[1].appendChil(username);
-               fragment.appendChil[1].appendChil(email);
+               tr.appendChild(name);
+               tr.appendChild(username);
+               tr.appendChild(email);
+
+               fragmen.appendChild(tr);
+
 
             });
             table.appendChild(fragmen);
