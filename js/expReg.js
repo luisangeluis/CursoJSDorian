@@ -35,9 +35,26 @@ const text = document.querySelector('#texto').textContent;
 // const expReg = /^[a-zA-Z]{5}@{2}$/g
 //? Con este simbolo indicamos que puede o no estar pero si está solo seria una vez
 //+ Este indica que lo que esta a la izquierda debe estar 1 vez como minimo para que sea valido.
-const expReg = /.*@.*\.{1}.*/gi
+// const expReg = /.*@.*\.{1}.*/gi
+
+//\s sirve para indicar que hay un espacio en blanco
+//\S Sirve para indicar que no se admitira el espacio en blanco
+// const expReg = /^[a-zA-Z]+\s[a-zA-Z]+$/gm;
+
+//\d es equivalente a [0-9]
+//\D indica que no puede ser un numero
+// const expReg = /^\d{5}$/
+
+//\w indica que puede ser cualquier caracter alfanumerico y _ barra baja
+
+// \W indica que puede ser cualquier caracter que no sea alfanumerico ni guion bajo
+const expReg = /^\w+@$/
+
+
 
 
 
 
 console.log(text.match(expReg));
+console.log(expReg.test(text));
+
