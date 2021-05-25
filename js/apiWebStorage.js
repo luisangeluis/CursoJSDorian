@@ -9,11 +9,17 @@ form.addEventListener('submit', (e) => {
     sessionStorage.setItem(form.key.value, form.value.value);
 
     sel.innerHTML += `<option>${form.key.value}</option>`;
+
+
     form.reset();
 })
 
 sel.addEventListener('change', () => {
-    document.querySelector('#info-value').textContent = sessionStorage.getItem(sel[sel.selectedIndex].textContent);
-    
+    // document.querySelector('#info-value').textContent = sessionStorage.getItem(sel[sel.selectedIndex].textContent);
+    // document.querySelector('#info-value').textContent = sessionStorage.getItem(form.value.value);
 
+    document.querySelector('#info-value').textContent = sessionStorage.getItem(sel[sel.selectedIndex].textContent);
+
+    
 });
+
