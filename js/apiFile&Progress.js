@@ -16,9 +16,15 @@ inputFile.addEventListener('change',(e)=>{
     fileReader.addEventListener('load',(e)=>{
         const img = document.createElement('img');
 
-        // console.log(e);
+        console.log(e);
         img.setAttribute('src',e.target.result);
-        img.style.width='100%';
+        // img.setAttribute('muted',true);
+        // img.setAttribute('preload','auto');
+        // img.setAttribute('controls','true');
+
+
+
+        // img.style.width='100%';
 
 
         fragment.appendChild(img);
