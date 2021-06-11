@@ -11,22 +11,27 @@
         .barra {
 
             background-color: gray;
-            height: 20px;
+            height: 15px;
             width: 50%;
             position: relative;
+
         }
 
         .progreso{
             display:block;
             background-color: red;
             width:0%;
+            height: 15px;
+            transition: width .7s;
         }
     </style>
 </head>
 
 <body>
     <input type="file" id="input-file">
+
     <div id="div-archivo"></div>
+
     <div id="barra" class="barra">
         <span id="progreso" class="progreso"></span>
     </div>
