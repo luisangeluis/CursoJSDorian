@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file+drag&drop</title>
+
+    <style>
+
+        .hidde{
+            display: none;
+        }
+        form {
+            width: 80%;
+            background-color: lightblue;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        form .drop-zone {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 300px;
+            text-align: center;
+            font-size: 30px;
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--enctype es para cosas que no sean textos en formularios-->
+    <form action="" enctype="multipart/form-data">
+        <input type="file" id='input-file' class="hidde" multiple>
+        <div class="drop-zone" id="drop-zone">
+            <p>
+                click aqui o arrastre su archivo
+            </p>
+        </div>
+    </form>
+    <script src="/js/file+drag&drop.js"></script>
+</body>
+
+</html>
