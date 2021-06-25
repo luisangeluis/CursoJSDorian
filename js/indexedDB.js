@@ -2,7 +2,12 @@
 //window.indexedDB sirve para accesar indexedDB (API)
 const indexDB = window.indexedDB;
 
-if(indexDB){
+const formulario = document.querySelector('#formulario');
+
+const btnAddTask = document.querySelector('#add-task');
+
+
+if(indexDB && formulario){
 
     //db se usa para almacenar la base de datos.
     let db;
@@ -31,6 +36,18 @@ if(indexDB){
     request.onerror=(error)=>{
         console.log('error',error);
     }
+
+    formulario.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        const data = {
+            taskTitle: e.target.inputTask.value,
+            priority: e.target.selPriority.value
+        }
+        console.log(data);
+
+    });
+
+
 }
 
 
