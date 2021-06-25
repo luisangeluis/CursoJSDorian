@@ -7,7 +7,18 @@
     <title>IndexedDB</title>
 </head>
 <body>
-    
+    <form action="" id="formulario">
+        <label for="input-task">Tarea</label>
+        <input type="text" id="input-task" name="inputTask">
+
+        <select name="selPriority">
+            <option value="low">baja</option>
+            <option value="normal">normal</option>
+            <option value="hight">alta</option>
+
+        </select>
+        <button type="submit" id="add-task">Agregar tarea</button>
+    </form>
 
     <script src="/js/indexedDB.js"></script>
 </body>
