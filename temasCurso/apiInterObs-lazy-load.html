@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interseccion observer II</title>
+</head>
+
+<body>
+    <h1>interseccion observer con lazy load</h1>
+
+    <div id="images">
+
+    </div>
+    <!--Axios-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script>
+        const images = document.querySelector('#images');
+
+
+        const getImages = () => {
+            axios('https://picsum.photos/v2/list?page=2&limit=5')
+                .then(res => {
+                    const fragment = document.createDocumentFragment();
+
+                    console.log(res);
+
+                    res.data.forEach(elemento => {
+                        const newImg = document.createElement('img');
+                        newImg.style.width = '100%'
+                        newImg.src = elemento.download_url
+                        fragment.appendChild(newImg);
+                    });
+
+                    images.appendChild(fragment);
+                    setObserver();
+                })
+
+
+        }
+
+
+
+        const callback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    console.log(entry);
+                    getImages();
+
+                }
+            });
+        }
+
+        const setObserver = () => {
+            const option = {
+                threshold: 0.5
+            }
+
+            const observer = new IntersectionObserver(callback);
+
+            observer.observe(images.lastElementChild);
+        }
+
+        getImages();
+
+    </script>
+</body>
+
+</html>
