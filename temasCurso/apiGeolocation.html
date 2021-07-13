@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Geolocation</title>
+</head>
+<body>
+    <button id="geolocation">Get geolocation</button>
+
+    <script>
+        const btnGeo = document.querySelector('#geolocation');
+
+        btnGeo.addEventListener('click',()=>{
+            const location = navigator.geolocation;
+            
+            //getCurrentPosition recibe 3 parametros solo el primero es obligatorio
+            location.getCurrentPosition(getPosition,getError,options)
+        });
+
+        const getPosition=(position)=>{
+            console.log(position);
+        }
+
+        const options={
+            //Son mas utiles en mobiles
+            enableHightAccuracy: true,
+            timeout: 7000,
+            //Valor 0 para que se actualice en tiempo real
+            maximumAge: 0
+
+        }
+
+        const getError=(error)=>console.log(error);
+    </script>
+</body>
+</html>
