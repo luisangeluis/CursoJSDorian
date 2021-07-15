@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api match media</title>
+
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .title {
+            color: white;
+        }
+
+        .blue{
+            background-color: blue;
+        }
+
+        @media screen and (min-width: 600px) {
+            body {
+                background-color: white;
+            }
+            .title{
+                color: black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Api match media</h1>
+
+
+    <script>
+
+        // Se recomienda en lugar de innerWidth
+        const mql = matchMedia('(min-width: 600px)');
+        console.log(mql);
+
+        const aplyMatchMedia = mql =>{
+            mql.matches?
+                document.querySelector('body').classList.add('blue')
+            : document.querySelector('body').classList.remove('blue')
+        }
+
+        addEventListener('resize',()=>{
+            aplyMatchMedia(mql);
+            console.log('a');
+        })
+        aplyMatchMedia(mql);
+
+    </script>
+</body>
+
+</html>
