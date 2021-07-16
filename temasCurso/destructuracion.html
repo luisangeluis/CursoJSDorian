@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuracion</title>
+</head>
+<body>
+    <h1>Es para acceder de una forma mas comoda a las propiedades de los objetos</h1>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script>
+        const person = {
+            id: 1,
+            nombre: 'Luis',
+            edad: 30
+        }
+
+        const numeros = [20,2,15];
+
+        // En la destructuracion hay que nombrar a las variables igual que a la propiedades
+        const  {id,nombre,edad:age} = person;
+
+        //Se puede renombrar como en el ejemplo de edad por si no nos sirve el nombre anterior
+        console.log(id,nombre,age);
+
+        const [a,b,tercerNumero] = numeros;
+
+        console.log(tercerNumero);
+        console.log(b);
+
+        //Forma Tradicional
+        // const printPerson=(pPerson)=>{
+        //     console.log(`desde un metodo ${pPerson.nombre}`);
+
+        // }
+        
+        //Destructuracion le indicas las propiedades que vas a manejar cuando pasas el objeto person
+        const printPerson =({edad})=>{
+            console.log(`desde un metodo ${edad}`);
+
+        }
+
+        printPerson(person);
+
+        const getUsers= async()=>{
+            //Forma tradicional
+            // const users = await axios.get('https://jsonplaceholder.typicode.com/users')
+
+            //Forma destructurada
+            const {data: users} = await axios.get('https://jsonplaceholder.typicode.com/users')
+            console.log(users)
+        }
+
+        getUsers();
+
+    </script>
+</body>
+</html>
