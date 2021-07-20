@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debuggin</title>
+</head>
+<body>
+    <form action="" id="my-Form">
+        <label for="num1">Numero 1</label>
+        <input type="text" id="num1">
+        <label for="num2">Numero 2</label>
+        <input type="text" id="num2">
+        <input type="submit" value="calcular" id="btn-calcular">
+
+    </form>
+
+    <div class="result" id="result">
+
+    </div>
+
+    <script>
+        // const btnCalcular = document.querySelector('#btn-calcular');
+        const myForm = document.querySelector('#my-Form');
+        const divResult = document.querySelector('#result');
+
+        myForm.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            console.log(e);
+            console.log(e.target.num1.value);4
+
+            const num1= parseInt(e.target.num1.value);
+            const num2 = parseInt(e.target.num2.value);
+            let result =0;
+            
+
+            if(num1!=='' && num2!==''){
+                result = num1+num2;
+            }
+
+            divResult.textContent = result;
+
+        });
+        
+    </script>
+</body>
+</html>
